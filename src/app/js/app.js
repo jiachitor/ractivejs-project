@@ -8,7 +8,6 @@ import '_sass/app.scss'
 import appTPL from '_templates/app.html'
 import fooComponent from '_components/foo.js'  
 
-
 console.log("start!")  
 
 /*var ractive = new Ractive({
@@ -31,6 +30,8 @@ var ractive = new Ractive({
     }
 });
 
-ractive.on('clicked', function(ev) {
-    console.log('clicked');
+ractive.on({
+    clicked: function (ev) {
+        console.log('clicked');
+    }
 });
