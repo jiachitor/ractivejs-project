@@ -1,0 +1,12 @@
+<div>
+    {{ yield }}
+    <ul>
+        {{#each cats:i}}
+        <li>
+            <a href="javascript:void(0);">
+                <button on-tap='selectCat:{{this}}' data-id="{{this.id}}">{{this.name}}</button>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+</div>

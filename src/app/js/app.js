@@ -5,32 +5,31 @@ import 'ractive-touch'
 
 import '_sass/app.scss'
 
-import appTPL from '_templates/app.html'
-import fooComponent from '_components/foo.js'  
+import appTemplate from '_templates/app.html'
+import loginComponent from '_components/login.js'  
+import homeComponent from '_components/home.js'  
 
-console.log("start!")  
+// Ractive 自带有 promise ，不过我们也可以用原生的 promise
+var Promise = Ractive.Promise;
 
-/*var ractive = new Ractive({
+console.log("start!!!")    
+
+var app = new Ractive({
     el: 'container',
-    template: testTPL,
-    data: {
-        visible: 1
-    }
-});*/
-
-
-var ractive = new Ractive({
-    el: 'container',
-    template: appTPL,
+    template: appTemplate,
     components: {
-        Foo: fooComponent
+        Home: homeComponent,
+        Login: loginComponent
     },
     data: {
-        myData: 1
-    }
+        loginStatus: true
+    },
+    oninit:function(){
+
+    },
 });
 
-ractive.on({
+app.on({
     clicked: function (ev) {
         console.log('clicked');
     }

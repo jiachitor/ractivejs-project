@@ -14,3 +14,11 @@ getJSON( '/temperature.json' ).then( function ( cities ) {
     this.set( 'selectedCity', cities[ index ] );
   });
 });
+
+<!-- 使用变量 -->
+<button on-click="{{handler}}">click me!</button>
+
+<!-- 判断  这个也蛮有用 -->
+<button on-click="{{#active}}select{{/}}">click me!</button>
+
+<button on-click='set( "foo", true)'>make foo true</button>

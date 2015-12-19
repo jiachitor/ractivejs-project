@@ -25,6 +25,7 @@ module.exports = {
             "_api": path.join(__dirname, "src/" + config_appName + "/js/api"),
             "_common": path.join(__dirname, "src/" + config_appName + "/js/common"),
             "_components": path.join(__dirname, "src/" + config_appName + "/js/components"),
+            "_data": path.join(__dirname, "src/" + config_appName + "/js/data"),
             "_store": path.join(__dirname, "src/" + config_appName + "/js/store"),
             "_templates": path.join(__dirname, "src/" + config_appName + "/js/templates"),
             "_uiModules": path.join(__dirname, "src/" + config_appName + "/js/uiModules"),

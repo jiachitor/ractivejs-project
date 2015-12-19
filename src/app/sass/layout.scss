@@ -2,10 +2,10 @@ $body-height: 100%;
 $header-height: 50px; 
 
 @mixin height-calc() {
-  height: -moz-calc(100% - 50px);
-  height: -webkit-calc(100% - 50px);
-  height: -ms-calc(100% - 50px);
-  height: calc(100% - 50px);
+  height: -moz-calc(100% - 0px);
+  height: -webkit-calc(100% - 0px);
+  height: -ms-calc(100% - 0px);
+  height: calc(100% - 0px);
 }
 
 @mixin content-width-calc() {

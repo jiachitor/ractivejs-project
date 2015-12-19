@@ -1,15 +1,6 @@
-<!-- {{#if visible === 1 }}
-  <button on-tap='show:2'>Click me!</button>
-{{elseif visible === 2 }}
-  <button on-tap='show:3'>And me!</button>
-{{elseif visible === 3 }}
-  <button on-tap='show:1'>Now click me!</button>
-{{/if}} -->
-<Foo>
-    {{ myData }}
-    <button on-click="clicked">Click</button>
-</Foo>
-<Foo>
-    I will be in the name-less yield. 
-    {{#partial foo}} I will be in the foo yield. {{/partial}}
-</Foo>
+
+{{#if loginStatus}}
+    <Home></Home>
+{{else}}
+    <Login></Login>
+{{/if}}
