@@ -24,3 +24,9 @@
 
     <button on-click='set( "foo", true)'>make foo true</button>
 ```
+
+```
+node init app   //初始化webpack 配置文件
+node server     //启动服务
+npm run build   //编译代码
+```
