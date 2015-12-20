@@ -8,19 +8,10 @@ var Sidebar = Ractive.extend({
         return {
             cats: [{
                 id: 101,
-                name: "demo1"
+                name: "news"
             }, {
                 id: 102,
-                name: "demo2"
-            }, {
-                id: 103,
-                name: "demo3"
-            }, {
-                id: 104,
-                name: "demo4"
-            }, {
-                id: 105,
-                name: "demo5"
+                name: "form"
             }]
         };
     },

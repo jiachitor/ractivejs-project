@@ -4,19 +4,26 @@ var path = require('path'),
 var vue = require('vue-loader'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+var node_modules_dir = path.join(__dirname, 'node_modules');
+
+var deps = [
+  'ractive/react.min.js'
+];
+
 module.exports = {
     entry: {
         app: [
             path.resolve(__dirname, "src", config_appName, "js", "app.js")
-        ]
+        ],
+        /*mobile: path.resolve(__dirname, "src", config_appName, "js", "components", "home", "mobile.js"),*/
     },
     output: {
         path: path.resolve(__dirname, "src", config_appName, "assets"),
-        filename: 'app.bundle.js'
+        filename: '[name].js'
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin("app.bundle.css")
+        new ExtractTextPlugin("app.css")
     ],
     resolve: {
         extensions: ['', '.js', '.jsx'],
@@ -36,7 +43,11 @@ module.exports = {
         ]
     },
     module: {
+        // 使用暴露全局加载器来暴露压缩版的 Ractive Js。
         loaders: [{
+            test: path.resolve(node_modules_dir, deps[0]),
+            loader: "expose?Ractive"
+        }, {
             test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
             loader: "url-loader?limit=10000&mimetype=application/font-woff"
         }, {

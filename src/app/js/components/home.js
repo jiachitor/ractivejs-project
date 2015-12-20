@@ -3,15 +3,21 @@ import Ractive from 'ractive'
 import homeTemplate from '_templates/home.html'
 
 import sidebarComponent from '_components/home/sidebar.js'
-import goComponent from '_components/go.js'
 
-var Home = Ractive.extend({
+import newsComponent from "_components/home/news/index.js"
+import formComponent from "_components/home/form/index.js"
+
+var Home = Ractive.extend({  
     template: homeTemplate,
     components: {
-        Sidebar: sidebarComponent
+        Sidebar: sidebarComponent,
+        News: newsComponent,
+        FormV: formComponent
     },
-    data: {
-        cat: 101
+    data: function() {
+        return {
+            cat: 101
+        };
     },
     onrender: function() {
 

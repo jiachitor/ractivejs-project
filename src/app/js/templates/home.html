@@ -1,11 +1,3 @@
-<!-- <Foo>
-    {{ myData }}
-    <button on-click="clicked">Click</button>
-</Foo>
-<Foo>
-    I will be in the name-less yield. 
-    {{#partial foo}} I will be in the foo yield. {{/partial}}
-</Foo> -->
 <div class="app-container clearfix">
     <div class="container-sidebar pull-left">
         <Sidebar>
@@ -17,15 +9,9 @@
     <div class="container-body ">
         <div class="container-body-scroll">
             {{#if cat === 101 }}
-            <button on-tap='show:2' intro='fade'>Click me! {{cat}}</button>
+            <News></News>
             {{elseif cat === 102 }}
-            <button on-tap='show:3'>And me! {{cat}}</button>
-            {{elseif cat === 103 }}
-            <button on-tap='show:1'>Now click me! {{cat}}</button>
-            {{elseif cat === 104 }}
-            <button on-tap='show:1'>Now click me! {{cat}}</button>
-            {{elseif cat === 105 }}
-            <button on-tap='show:1'>Now click me! {{cat}}</button>
+            <FormV></FormV>
             {{/if}}
         </div>
     </div>
