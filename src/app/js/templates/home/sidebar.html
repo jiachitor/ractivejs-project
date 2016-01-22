@@ -1,12 +1,25 @@
 <div>
     {{ yield }}
+    <h4>{{title}}</h4>
     <ul>
         {{#each cats:i}}
-        <li>
-            <a href="javascript:void(0);">
-                <button on-tap='selectCat:{{this}}' data-id="{{this.id}}">{{this.name}}</button>
+        <li class="{{activeIndex === i ? 'active' : ''}}">
+            <a href="javascript:void(0);" on-tap='selectCat:{{this}},{{i}}' data-id="{{this.id}}">
+                <span>{{this.name}}</span>
             </a>
         </li>
         {{/each}}
     </ul>
+    <div class="sidebar-fn">
+        <div class="fn-country">
+            <select id="country" class="locales-select form-control input-sm" on-change="changeLocales" value="{{localesValue}}">
+                {{#each countries:i}}
+                    <option value="{{i}}" >{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="fn-signout">
+            <a href="javascript:void(0);" >LoginOut</a>
+        </div>
+    </div>
 </div>

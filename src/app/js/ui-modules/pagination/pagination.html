@@ -1,0 +1,31 @@
+<div class="pagination-upload">
+    <form class="form-inline">
+        <div class="row">
+            <div class="col-md-4 text-left">
+                <div class="form-group">
+                    <span class="ui-page-span">Showing Items Count</span>
+                    <select value='{{numPpage}}' on-change='changeNumPpage' class="form-control">
+                        {{#pageOpts:i}}
+                        <option value='{{.}}'>{{.}}</option>
+                        {{/pageOpts}}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-8 clearfix">
+                <div class="form-group pull-right">
+                    <nav>
+                        <ul class="pager">
+                            {{#(curPage>1)}}
+                            <li><a href="#" on-click="gotoPage:-1">Previous</a></li>
+                            {{/curPage}}
+                            <li><span > Page:{{curPage}}</span>
+                                <input type="text" class="form-control input-sm ui-page-input" on-enter="gotoPage" value="">
+                            </li>
+                            <li><a href="#" on-click="gotoPage:1">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

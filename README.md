@@ -30,3 +30,8 @@ node init app   //初始化webpack 配置文件
 node server     //启动服务
 npm run build   //编译代码
 ```
+
+请在 local storage 中添加如下信息：
+```
+config: {"env": "dep","lang": "en","environment": "development","signedIn": true,"usrName": "test","token": "345047484d4b672a481c4d30c2030edc","locales": [{"id": "ru-ru","name": "Russia"}, {"id": "tr-tr","name": "Turkey"}, {"id": "ru-me","name": "Russia-Meegusta"}, {"id": "ar-sa","name": "Arabic"}, {"id": "en-sa","name": "En-Arabic"}, {"id": "zh-os","name": "华闻"}],"lcId": "ru-ru"}
+```

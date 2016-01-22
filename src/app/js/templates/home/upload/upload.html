@@ -1,0 +1,97 @@
+{{#loading}}
+<LoadingV></LoadingV>
+{{/loading}} {{^loading}}
+<div class="flow-upload">
+    <div class="flow-error">
+        Your browser, unfortunately, is not supported by Flow.js. The library requires support for <a href="http://www.w3.org/TR/FileAPI/">the HTML5 File API</a> along with <a href="http://www.w3.org/TR/FileAPI/#normalization-of-params">file slicing</a>.
+    </div>
+    <div class="flow-drop" ondragenter="jQuery(this).addClass('flow-dragover');" ondragend="jQuery(this).removeClass('flow-dragover');" ondrop="jQuery(this).removeClass('flow-dragover');">
+        <h3>{{activeTypeData.name}}</h3> Drop files here to upload or <a class="flow-browse-folder"><u>select folder</u></a> or <a class="flow-browse"><u>select from your computer</u></a> or <a class="flow-browse-image"><u>select images</u></a>
+    </div>
+    <div class="flow-progress">
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+    {{#if errorMessage.length > 0 }}
+         <div class="alert alert-warning">
+            {{#errorMessage:i}}
+                <p>{{message}}</p>
+            {{/}}
+        </div>
+    {{/if}}
+</div>
+<div class="images-table table-responsive">
+    {{#loadListing}}
+    <LoadingV></LoadingV>
+    {{/loadListing}}
+
+    {{^loadListing}}
+    <table class="table  table-bordered">
+        <thead>
+            <tr>
+                <th >#</th>
+                <th >{{activeTypeData.name}} show</th>
+                <th width="150px">width-height</th>
+                <th width="200px">create time</th>
+                <th width="300px">image link</th>
+                <th >copy</th>
+                <th >delete</th>
+            </tr>
+        </thead>
+        <tbody >
+            {{#each imagesData:num}}
+                <tr >
+                  <td style="vertical-align: middle;">{{num+1}}</td>
+                  <td style="vertical-align: middle;"><img class="img-responsive" src='{{url}}' /></td>
+                  <td style="vertical-align: middle;">{{width}}*{{height}}</td>
+                  <td style="vertical-align: middle;">{{formatDate(created)}}</td>
+                  <td style="vertical-align: middle;">
+                        <textarea class="form-control" rows="5" value="{{url}}" on-focus='focus'></textarea>
+                  </td>
+                  <td style="vertical-align: middle;" on-mouseenter="initZeroClipboard:{{num}}" on-mouseleave="destroyClipboard:{{num}}">
+                    <div class="ZeroClipboard-inbox"  >
+                        <button type="button" class="btn btn-info btn-sm btn-copy"  data-clipboard-text="{{url}}"
+                            id="Clipboard_id_{{num}}" >Copy the link</button>
+                    </div>
+                  </td>
+                  <td style="vertical-align: middle;">
+                      <button type="button" class="btn btn-default" on-tap='delete:{{this}}' >Delete</button>
+                  </td>
+                </tr>
+            {{/each}}
+    </table>
+    {{/loadListing}}
+</div>
+
+<div class="pagination-upload">
+    <div class="form-inline">
+        <div class="row">
+            <div class="col-md-4 text-left">
+                <div class="form-group">
+                    <span class="ui-page-span">Showing Items Count</span>
+                    <select value='{{numPpage}}' on-change='changeNumPpage' class="form-control">
+                        {{#pageOpts:i}}
+                        <option value='{{.}}'>{{.}}</option>
+                        {{/pageOpts}}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-8 clearfix">
+                <div class="form-group pull-right">
+                    <nav>
+                        <ul class="pager">
+                            {{#(page>1)}}
+                            <li><a href="#" on-tap="gotoPage:-1">Previous</a></li>
+                            {{/page}}
+                            <li><span > Page:{{page}}</span>
+                            </li>
+                            <li><a href="#" on-tap="gotoPage:1">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/loading}}

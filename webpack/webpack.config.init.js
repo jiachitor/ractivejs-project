@@ -29,13 +29,14 @@ module.exports = {
         extensions: ['', '.js', '.jsx'],
         modulesDirectories: ['node_modules'],
         alias: {
-            "_api": path.join(__dirname, "src/" + config_appName + "/js/api"),
+            "_actions": path.join(__dirname, "src/" + config_appName + "/js/actions"),
             "_common": path.join(__dirname, "src/" + config_appName + "/js/common"),
             "_components": path.join(__dirname, "src/" + config_appName + "/js/components"),
             "_data": path.join(__dirname, "src/" + config_appName + "/js/data"),
-            "_store": path.join(__dirname, "src/" + config_appName + "/js/store"),
+            "_stores": path.join(__dirname, "src/" + config_appName + "/js/stores"),
             "_templates": path.join(__dirname, "src/" + config_appName + "/js/templates"),
-            "_uiModules": path.join(__dirname, "src/" + config_appName + "/js/uiModules"),
+            "_uiModules": path.join(__dirname, "src/" + config_appName + "/js/ui-modules"),
+            "_utils": path.join(__dirname, "src/" + config_appName + "/js/utils"),
             '_sass': path.join(__dirname, "src/" + config_appName + "/sass"),
         },
         root: [
